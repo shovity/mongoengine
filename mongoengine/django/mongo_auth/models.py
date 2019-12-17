@@ -78,7 +78,7 @@ class MongoUserManager(UserManager):
 
     def get(self, *args, **kwargs):
         try:
-            return self.get_query_set().get(*args, **kwargs)
+            return self.get_queryset().get(*args, **kwargs)
         except self.model.DoesNotExist:
             # ModelBackend expects this exception
             raise self.dj_model.DoesNotExist
@@ -90,7 +90,7 @@ class MongoUserManager(UserManager):
     def get_empty_query_set(self):
         return self.model.objects.none()
 
-    def get_query_set(self):
+    def get_queryset(self):
         return self.model.objects
 
 
