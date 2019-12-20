@@ -78,7 +78,8 @@ class BaseDocument(object):
                     msg = (
                         "The field '{0}' does not exist on the document '{1}'"
                     ).format(var, self._class_name)
-                    raise FieldDoesNotExist(msg)
+                    # raise FieldDoesNotExist(msg)
+                    print msg
 
         if self.STRICT and not self._dynamic:
             self._data = StrictDict.create(allowed_keys=self._fields_ordered)()
